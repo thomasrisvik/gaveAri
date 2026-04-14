@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Du har fått en gave!</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Step 1: Entry -->
+  <div id="step-entry" class="screen active">
+    <div class="card">
+      <div class="gift-icon">🎁</div>
+      <h1 id="entry-title">Thomas sendte</h1>
+      <p class="subtitle">Trykk nedenfor for å åpne den</p>
+      <button id="open-btn">Klikk for å åpne</button>
+    </div>
+  </div>
+
+  <!-- Step 2: Unwrapping -->
+  <div id="step-unwrap" class="screen">
+    <div class="card">
+      <div class="unwrap-icon">🎀</div>
+      <p class="unwrap-text" id="unwrap-label">Åpner...</p>
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill" id="progress-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 3: Reveal -->
+  <div id="step-reveal" class="screen">
+    <p class="reveal-text" id="reveal-message"></p>
+    <div class="gif-container">
+      <img id="reveal-gif" src="" alt="meme" />
+    </div>
+    <button id="replay-btn">Spill av igjen</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

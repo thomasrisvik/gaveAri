@@ -1,0 +1,182 @@
+/* ── Reset & base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #f7f3ee;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* ── Screens ── */
+.screen {
+  display: none;
+  width: 100%;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.screen.active {
+  display: flex;
+  opacity: 1;
+}
+
+.screen.fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.97); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ── Step 1: Entry card ── */
+.card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+  padding: 48px 40px 40px;
+  text-align: center;
+  max-width: 380px;
+  width: 90%;
+}
+
+.gift-icon {
+  font-size: 64px;
+  margin-bottom: 16px;
+  animation: bounce 1.4s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+
+.card h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: #888;
+  font-size: 0.95rem;
+  margin-bottom: 28px;
+}
+
+button#open-btn {
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 14px 40px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  letter-spacing: 0.02em;
+}
+
+button#open-btn:hover  { background: #c0392b; }
+button#open-btn:active { transform: scale(0.97); }
+
+/* ── Step 2: Unwrap ── */
+.unwrap-icon {
+  font-size: 60px;
+  margin-bottom: 20px;
+  animation: spin 1.2s linear infinite;
+}
+
+@keyframes spin {
+  0%   { transform: rotate(0deg) scale(1); }
+  50%  { transform: rotate(180deg) scale(1.15); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+.unwrap-text {
+  font-size: 1.2rem;
+  color: #444;
+  margin-bottom: 24px;
+}
+
+.progress-bar-track {
+  background: #eee;
+  border-radius: 50px;
+  height: 10px;
+  width: 260px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  background: linear-gradient(90deg, #e74c3c, #f39c12);
+  height: 100%;
+  width: 0%;
+  border-radius: 50px;
+  transition: width 0.05s linear;
+}
+
+/* ── Step 3: Reveal ── */
+#step-reveal {
+  background: #111;
+  padding: 24px 16px;
+  gap: 20px;
+}
+
+.reveal-text {
+  color: #fff;
+  font-size: clamp(1.2rem, 4vw, 1.8rem);
+  font-weight: 700;
+  text-align: center;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.7);
+  max-width: 600px;
+  letter-spacing: 0.01em;
+  padding: 0 12px;
+}
+
+.gif-container {
+  width: 100%;
+  max-width: 480px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+}
+
+.gif-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  animation: popIn 0.4s ease;
+}
+
+@keyframes popIn {
+  0%   { opacity: 0; transform: scale(0.85); }
+  60%  { transform: scale(1.04); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+button#replay-btn {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  border-radius: 50px;
+  padding: 10px 30px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 8px;
+}
+
+button#replay-btn:hover { background: rgba(255,255,255,0.15); }
